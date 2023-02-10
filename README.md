@@ -27,7 +27,7 @@ composer require dereuromark/cakephp-decimal
 
 To enable this for all your decimal columns, use this in bootstrap:
 ```php
-Type::map('decimal', 'CakeDecimal\Database\Type\DecimalObjectType');
+\Cake\Database\TypeFactory::map('decimal', 'CakeDecimal\Database\Type\DecimalObjectType');
  ```
 
 This will automatically replace the core behavior and map any incoming value to the value object on marshalling,
@@ -35,7 +35,7 @@ and also convert your database values to it when reading.
 
 If you just want to map certain fields, you need to use an alias for those.
 ```php
-Type::map('decimal_object', 'CakeDecimal\Database\Type\DecimalObjectType');
+\Cake\Database\TypeFactory::map('decimal_object', 'CakeDecimal\Database\Type\DecimalObjectType');
  ```
 Then inside your Table classes set them explicitly inside `_initializeSchema()`:
 ```php
@@ -61,13 +61,13 @@ You can configure the Type class in your bootstrap.
 
 To enable auto trim:
 ```php
-Type::build('decimal')
+\Cake\Database\TypeFactory::build('decimal')
     ->useAutoTrim();
 ```
 
 To enable localization parsing:
 ```php
-Type::build('decimal')
+\Cake\Database\TypeFactory::build('decimal')
     ->useLocaleParser();
 ```
 
